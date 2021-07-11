@@ -38,7 +38,7 @@ namespace BlazorApp.Api.Repository
 
         public async Task<Employee> GetEmployee(int employeID)
         {
-            return await dBContext.Employees.FirstOrDefaultAsync(x => x.EmployeeID == employeID);
+            return await dBContext.Employees.Include(x => x.Department).FirstOrDefaultAsync(x => x.EmployeeID == employeID);
         }
 
         public async Task<Employee> GetEmployeeByEmail(string email)

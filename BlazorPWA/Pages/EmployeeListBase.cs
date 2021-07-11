@@ -20,6 +20,22 @@ namespace BlazorPWA.Pages
             Employees = (await EmployeeService.GetEmployees()).ToList();
         }
 
+        public bool ShowFooter = true;
+
+        public int SelectedEmployeeCount { get; set; } = 0;
+
+        protected void EmployeeSelectionChange(bool IsChecked)
+        {
+            if (IsChecked)
+            {
+                SelectedEmployeeCount++;
+            }
+            else
+            {
+                SelectedEmployeeCount--;
+            }
+        }
+
         private void LoadEmployees()
         {
             Employee e1 = new Employee
