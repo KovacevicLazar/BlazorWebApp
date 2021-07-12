@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlazorApp.Models
+﻿namespace BlazorApp.Models
 {
     public enum Gender
     {

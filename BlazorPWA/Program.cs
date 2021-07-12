@@ -20,6 +20,11 @@ namespace BlazorPWA
                 client.BaseAddress = new Uri("https://localhost:44347/"); 
             });
 
+            builder.Services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
+             {
+                 client.BaseAddress = new Uri("https://localhost:44347/");
+             });
+                
             await builder.Build().RunAsync();
         }
     }
