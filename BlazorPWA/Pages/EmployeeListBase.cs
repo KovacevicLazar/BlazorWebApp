@@ -36,6 +36,12 @@ namespace BlazorPWA.Pages
             }
         }
 
+        protected async Task DeleteEmployee(int id)
+        {
+            //Employees = Employees.Where(x => x.EmployeeID != id);
+            Employees = (await EmployeeService.GetEmployees()).ToList();
+        }
+
         private void LoadEmployees()
         {
             Employee e1 = new Employee

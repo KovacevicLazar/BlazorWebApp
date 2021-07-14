@@ -10,12 +10,16 @@ namespace BlazorApp.Models.CustomValidators
         public string AllowedDimain { get; set; }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            string[] strings = value.ToString().Split('@');
-            if (strings.Length > 1 && strings[1].ToUpper() == AllowedDimain.ToUpper())
+            if (value != null)
             {
-                return null;
+                string[] strings = value.ToString().Split('@');
+                if (strings.Length > 1 && strings[1].ToUpper() == AllowedDimain.ToUpper())
+                {
+                    return null;
+                }
+                return new ValidationResult($"Domain must be {AllowedDimain}", new[] { validationContext.MemberName });
             }
-            return new ValidationResult($"Domain must be {AllowedDimain}", new[] { validationContext.MemberName });
+            return null;
         }
     }
 }

@@ -19,6 +19,9 @@ namespace BlazorPWA.Pages
 
         [Inject]
         public IEmployeeService EmployeeService { get; set; }
+        
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
 
         [Parameter]
         public string id { get; set; }
@@ -46,6 +49,12 @@ namespace BlazorPWA.Pages
         protected void MouseMove(MouseEventArgs e)
         {
             Coordunates = $" X={e.ClientX} Y={e.ClientY}";
+        }
+
+        protected async Task DeleteEmployee()
+        {
+            await EmployeeService.DeleteEmployee(Employee.EmployeeID);
+            NavigationManager.NavigateTo("/");
         }
     }
 }

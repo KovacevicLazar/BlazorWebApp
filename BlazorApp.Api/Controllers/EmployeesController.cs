@@ -70,11 +70,9 @@ namespace BlazorApp.Api.Controllers
                     return BadRequest(ModelState);
                 }
                 var result = await employeeRepository.AddEmployee(employee);
-                if (result == null)
-                {
-                    return BadRequest();
-                }
-                return CreatedAtAction(nameof(GetEmployee), new { id = result.EmployeeID }, result);
+
+                //return CreatedAtAction(nameof(GetEmployee), new { id = result.EmployeeID }, result);
+                return result;
             }
             catch (Exception)
             {
@@ -83,8 +81,8 @@ namespace BlazorApp.Api.Controllers
             }
         }
 
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult<Employee>> UpdateEmployee(int id, Employee employee)
+        [HttpPut]
+        public async Task<ActionResult<Employee>> UpdateEmployee( Employee employee)
         {
             try
             {
@@ -92,14 +90,11 @@ namespace BlazorApp.Api.Controllers
                 {
                     return BadRequest();
                 }
-                if (employee.EmployeeID != id)
-                {
-                    return BadRequest("Employee ID mismatch");
-                }
+                
                 var result = await employeeRepository.UpdateEmployee(employee);
                 if (result == null)
                 {
-                    return NotFound($"Employee with ID:{id} not found");
+                    return NotFound($"Employee with ID:{employee.EmployeeID} not found");
                 }
 
                 return result;

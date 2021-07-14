@@ -13,7 +13,7 @@
         <div class="card-footer text-center">
             <a href="@($"/employeeDetail/{Employee.EmployeeID}")" class="btn btn-primary m-1">View</a>
             <a href="@($"/editEmployee/{Employee.EmployeeID}")" class="btn btn-primary m-1">Edit</a>
-            <a href="#" class="btn btn-danger m-1">Delete</a>
+            <button class="btn btn-danger m-1" type="button" @onclick="DeleteEmployee">Delete</button>
         </div>
     }
 </div>

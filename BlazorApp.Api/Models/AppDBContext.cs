@@ -44,7 +44,7 @@ namespace BlazorApp.Api.Models
                 LastName = "Tom",
                 Email = "tom@gmail.com",
                 DateOfBirth = DateTime.Now,
-                Gender = Gender.Female,
+                Gender = Gender.Male,
                 DepartmentID = 2,
                 PhotoPath = "images/tom.jpg"
             });
@@ -55,7 +55,7 @@ namespace BlazorApp.Api.Models
                 LastName = "Devis",
                 Email = "niko@gmail.com",
                 DateOfBirth = DateTime.Now,
-                Gender = Gender.Female,
+                Gender = Gender.Male,
                 DepartmentID = 3,
                 PhotoPath = "images/niko.jpg"
             });

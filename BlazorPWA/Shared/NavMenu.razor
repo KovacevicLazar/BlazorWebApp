@@ -12,6 +12,11 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/editEmployee" Match="NavLinkMatch.All" @onclick="HandleClick">
+                <span class="oi oi-person" aria-hidden="true"></span> Adding a new employee
+            </NavLink>
+        </li>
     </ul>
 </div>
 
@@ -23,5 +28,13 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    @inject NavigationManager NavigationManager;
+
+
+    private void HandleClick() 
+    {
+        NavigationManager.NavigateTo("editEmployee", true);
     }
 }
